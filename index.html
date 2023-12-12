@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric vs Gasoline Vehicle Cost Analysis - Multiple Locations</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { width: 80%; margin: 0 auto; padding: 20px; }
+        .slider-label { margin-top: 10px; }
+        select, input, button, .slider { margin: 5px 0; width: 100%; padding: 8px; }
+        #result, #plot, #breakEvenPoint, #averageGasPriceInfo { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Electric vs Gasoline Vehicle Cost Analysis - Multiple Locations</h2>
+        <select id="locationSelect"></select>
+        <button onclick="addLocation()">Add Location</button>
+        <div id="selectedLocations"></div>
+        <div id="averageGasPriceInfo"></div>
+        <p>Electricity Rate: $<span id="electricityRateDisplay"></span> per kWh</p>
+
+        <div class="slider-label">Annual Mileage: <span id="annualMileageDisplay">12000</span> miles</div>
+        <input type="range" id="annualMileage" min="1000" max="50000" step="1000" value="12000" class="slider" onchange="updateSliderDisplay()">
+
+        <div class="slider-label">Gasoline Car MPG: <span id="gasCarMpgDisplay">25</span></div>
+        <input type="range" id="gasCarMpg" min="10" max="60" step="1" value="25" class="slider" onchange="updateSliderDisplay()">
+
+        <div class="slider-label">Tesla Purchase Price: $<span id="teslaPriceDisplay">80000</span></div>
+        <input type="range" id="teslaPrice" min="30000" max="150000" step="1000" value="80000" class="slider" onchange="updateSliderDisplay()">
+
+        <div class="slider-label">Gasoline Car Purchase Price: $<span id="gasCarPriceDisplay">25000</span></div>
+        <input type="range" id="gasCarPrice" min="30000" max="150000" step="1000" value="25000" class="slider" onchange="updateSliderDisplay()">
+
+        <button onclick="calculateAndPlotCosts()">Calculate and Plot Costs</button>
+        <div id="result"></div>
+        <div id="plot"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
