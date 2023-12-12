@@ -53,6 +53,10 @@ function updateSliderDisplay() {
 }
 
 function calculateAndPlotCosts() {
+    if (selectedLocations.length === 0) {
+        alert("Please select at least one location.");
+        return;
+    }
     const annualMileage = parseFloat(document.getElementById('annualMileage').value);
     const gasCarEfficiency = parseFloat(document.getElementById('gasCarMpg').value);
     const teslaPrice = parseFloat(document.getElementById('teslaPrice').value);
